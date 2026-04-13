@@ -4,14 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh Sách Game - L E M O N</title>
-    <link rel="stylesheet" href="style.css?v=110"> <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=110"> 
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Ép nội dung hiện ngay lập tức và bỏ qua mọi hiệu ứng ẩn của Script */
         #main-content { 
             display: block !important; 
             opacity: 1 !important; 
             visibility: visible !important;
             transform: none !important;
+        }
+        /* Style cho khung video để hợp với giao diện của bạn */
+        .video-wrapper {
+            background: #fff;
+            border-radius: 20px;
+            padding: 10px;
+            margin-top: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .video-wrapper video {
+            width: 100%;
+            border-radius: 15px;
+            display: block;
+        }
+        .video-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 8px;
+            display: block;
         }
     </style>
 </head>
@@ -45,11 +66,27 @@
                 <div class="install-btn">Install</div>
             </a>
 
+            <div class="video-wrapper">
+                <span class="video-title">🎥 Video  Hướng Dẫn Cài DNS Antiban </span>
+                <video controls>
+                    <source src="hd.MP4" type="video/mp4">
+                    Trình duyệt của bạn không hỗ trợ xem video.
+                </video>
+            </div>
             </div>
 
         <footer class="footer"><p>© 2026 Lemon Official</p></footer>
     </div>
 
     <script src="script.js?v=108"></script>
+    
+    <script>
+        const myVideo = document.querySelector('video');
+        const bgMusic = document.querySelector('audio');
+        if (myVideo && bgMusic) {
+            myVideo.onplay = () => bgMusic.pause();
+            myVideo.onpause = () => bgMusic.play();
+        }
+    </script>
 </body>
 </html>
