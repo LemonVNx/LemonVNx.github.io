@@ -1,7 +1,9 @@
 // By: xLemonVN 
-// LH: 0867441128 Settup Website
+// LH: 0904801291 Settup Website
 
-// Dữ liệu 13 chứng chỉ ESign của bạn
+// ==========================================
+// 1. KHO DỮ LIỆU ESIGN (13 CHỨNG CHỈ)
+// ==========================================
 const esignData = [
     { name: "Ksign✅", info: "XL AXIATA, PT TBK", link: "https://api.khoindvn.io.vn/JnAsbd" },
     { name: "Esign", info: "BOC International (China) Limited", link: "https://api.khoindvn.io.vn/XHJQcD" },
@@ -18,7 +20,38 @@ const esignData = [
     { name: "Esign", info: "GLOBAL TAKEOFF, INC", link: "https://api.khoindvn.io.vn/aKk6vi" }
 ];
 
-// 1. Hàm khởi tạo hệ thống
+// ==========================================
+// 2. KHO DỮ LIỆU GAME (THÊM/SỬA LINK NHANH TẠI ĐÂY)
+// ==========================================
+const gameData = {
+    // Biến định danh 'cfl'
+    'cfl': {
+        title: "Crossfire Legends",
+        items: [
+            { name: "Raven Crack Free", info: "Bản miễn phí ổn định", link: "https://tumadam.io.vn/autoup/cfmravencrackios" },
+            { name: "SKYCHEAT Antiban", info: "Antiban cực mạnh - Acc chính", link: "https://drive.google.com/file/d/1mvMDZh4w3oPfddrcOW08IxLVvhaWF-x9/view?usp=drivesdk" }
+        ]
+    },
+    // Biến định danh 'lq'
+    'lq': {
+        title: "Liên Quân Mobile",
+        items: [
+            { name: "Mod Menu VIP", info: "Cam xa + Antiban", link: "LINK_CUA_HUY_TAI_DAY" },
+            { name: "Mod Skin All", info: "Full hiệu ứng skin", link: "LINK_CUA_HUY_TAI_DAY" }
+        ]
+    },
+    // Biến định danh 'esign'
+    'esign': {
+        title: "ESign Bypass Revoke",
+        items: esignData // Tự động lấy 13 cái ở trên
+    }
+};
+
+// ==========================================
+// 3. HỆ THỐNG XỬ LÝ (KHÔNG CẦN THAY ĐỔI)
+// ==========================================
+
+// Hàm khởi tạo khi mở web
 document.addEventListener('DOMContentLoaded', () => {
     const splash = document.getElementById('splash-screen');
     const mainContent = document.getElementById('main-content');
@@ -34,11 +67,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = 'hidden';
     }
 
-    // Hiệu ứng hoa đào
+    // Hiệu ứng hoa đào rơi
     setInterval(createPetal, 500); 
 });
 
-// 2. Hàm xử lý khi chạm vào Màn hình chào
+// Hàm xử lý khi nhấn vào Splash Screen
 function startWeb() {
     const audio = document.getElementById('myAudio');
     const splash = document.getElementById('splash-screen');
@@ -66,57 +99,33 @@ function startWeb() {
     }
 }
 
-// 3. Xử lý Bảng chọn (Modal) chung
-function openHackModal(type) {
+// Hàm mở Bảng chọn (Modal) tự động
+function openHackModal(key) {
     const modal = document.getElementById('hack-modal');
     const title = document.getElementById('modal-game-name');
-    const modalBody = document.getElementById('modal-body-list'); // Đã sửa ID cho khớp HTML của bạn
+    const modalBody = document.getElementById('modal-body-list');
     
-    if (!modal || !title || !modalBody) return;
+    // Kiểm tra xem key (cfl, lq, esign...) có trong kho dữ liệu không
+    const data = gameData[key];
 
-    let htmlContent = "";
+    if (!modal || !title || !modalBody || !data) return;
 
-    // Xử lý mục Crossfire Legends (CFL)
-    if (type === 'cfl') {
-        title.innerText = "Crossfire Legends";
-        htmlContent = `
-            <div class="alert-info">Vui lòng chọn bản phù hợp</div>
-            <div class="hack-list">
-                <div class="hack-item">
-                    <div class="hack-info">
-                        <span class="hack-name">Raven Crack Free</span>
-                        <span class="hack-version">Bản miễn phí ổn định</span>
-                    </div>
-                    <button class="btn-download" onclick="window.open('https://tumadam.io.vn/autoup/cfmravencrackios', '_blank')">INSTALL</button>
+    title.innerText = data.title;
+    let htmlContent = `<div class="alert-info">Vui lòng chọn bản phù hợp</div><div class="hack-list">`;
+    
+    // Tự động chạy vòng lặp tạo danh sách nút bấm
+    data.items.forEach(item => {
+        htmlContent += `
+            <div class="hack-item">
+                <div class="hack-info">
+                    <span class="hack-name">${item.name}</span>
+                    <span class="hack-version">${item.info}</span>
                 </div>
-                <div class="hack-item">
-                    <div class="hack-info">
-                        <span class="hack-name">SKYCHEAT Antiban</span>
-                        <span class="hack-version">Antiban cực mạnh - Acc chính</span>
-                    </div>
-                    <button class="btn-download" onclick="window.open('https://drive.google.com/file/d/1mvMDZh4w3oPfddrcOW08IxLVvhaWF-x9/view?usp=drivesdk', '_blank')">INSTALL</button>
-                </div>
+                <button class="btn-download" onclick="window.open('${item.link}', '_blank')">INSTALL</button>
             </div>`;
-    } 
-    // Xử lý mục ESign (Gom 13 cái)
-    else if (type === 'esign') {
-        title.innerText = "ESign Bypass Revoke";
-        htmlContent = `<div class="alert-info">Chọn chứng chỉ để cài đặt</div>
-                       <div class="hack-list">`;
-        
-        esignData.forEach(item => {
-            htmlContent += `
-                <div class="hack-item">
-                    <div class="hack-info">
-                        <span class="hack-name">${item.name}</span>
-                        <span class="hack-version">${item.info}</span>
-                    </div>
-                    <button class="btn-download" onclick="window.open('${item.link}', '_blank')">INSTALL</button>
-                </div>`;
-        });
-        htmlContent += `</div>`;
-    }
+    });
 
+    htmlContent += `</div>`;
     modalBody.innerHTML = htmlContent;
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
@@ -131,7 +140,7 @@ function closeHackModal() {
     }
 }
 
-// Đóng bảng khi nhấn ra ngoài vùng bảng
+// Đóng bảng khi nhấn ra ngoài vùng bảng (vùng mờ)
 window.onclick = function(event) {
     const modal = document.getElementById('hack-modal');
     if (event.target === modal) {
@@ -139,7 +148,7 @@ window.onclick = function(event) {
     }
 };
 
-// 4. Hiệu ứng cánh hoa đào rơi
+// Hiệu ứng cánh hoa đào rơi
 function createPetal() {
     const petal = document.createElement('div');
     petal.className = 'cherry-blossom'; 
