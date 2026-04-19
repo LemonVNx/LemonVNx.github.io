@@ -1,6 +1,23 @@
 // By: xLemonVN 
 // LH: 0867441128 Settup Website
 
+// Dữ liệu 13 chứng chỉ ESign của bạn
+const esignData = [
+    { name: "Ksign✅", info: "XL AXIATA, PT TBK", link: "https://api.khoindvn.io.vn/JnAsbd" },
+    { name: "Esign", info: "BOC International (China) Limited", link: "https://api.khoindvn.io.vn/XHJQcD" },
+    { name: "Esign", info: "National Oilwell Varco, Inc", link: "https://api.khoindvn.io.vn/l5zzBs" },
+    { name: "Esign", info: "VIETNAM AIRLINES JSC", link: "https://api.khoindvn.io.vn/l0drnJ" },
+    { name: "Esign", info: "PowerChina International Group Limited", link: "https://api.khoindvn.io.vn/HdZnCj" },
+    { name: "Esign", info: "Qingdao Rural Commercail Bank Co.,Ltd", link: "https://api.khoindvn.io.vn/U7fGrl" },
+    { name: "Esign", info: "Commission on Elections", link: "https://api.khoindvn.io.vn/PnrQnK" },
+    { name: "Esign", info: "Luoyang Postal Administration", link: "https://api.khoindvn.io.vn/j7ugho" },
+    { name: "Esign", info: "China National Heavy Duty Truck Group", link: "https://api.khoindvn.io.vn/bYA0i6" },
+    { name: "Esign", info: "China Telecommunications Corpration", link: "https://api.khoindvn.io.vn/cTiFFB" },
+    { name: "Esign", info: "CHIBA INSTITUTE OF TECHNOLOGY", link: "https://api.khoindvn.io.vn/TPaVIt" },
+    { name: "Esign", info: "VIETCOMBANK JSC", link: "https://api.khoindvn.io.vn/4h9whC" },
+    { name: "Esign", info: "GLOBAL TAKEOFF, INC", link: "https://api.khoindvn.io.vn/aKk6vi" }
+];
+
 // 1. Hàm khởi tạo hệ thống
 document.addEventListener('DOMContentLoaded', () => {
     const splash = document.getElementById('splash-screen');
@@ -49,18 +66,53 @@ function startWeb() {
     }
 }
 
-// --- PHẦN MỚI: Xử lý Bảng chọn bản Hack (Modal) ---
-
-// Hàm mở bảng chọn bản hack
-function openHackModal(gameName) {
+// 3. Xử lý Bảng chọn (Modal) cho cả Skycheat và ESign
+function openHackModal(type) {
     const modal = document.getElementById('hack-modal');
     const title = document.getElementById('modal-game-name');
+    const modalBody = document.querySelector('.modal-body');
     
-    if (modal && title) {
-        title.innerText = gameName; // Gán tên game vào tiêu đề bảng
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Khóa cuộn trang khi đang xem bảng
+    if (!modal || !title || !modalBody) return;
+
+    let htmlContent = "";
+
+    // Nếu người dùng nhấn vào Skycheat
+    if (type === 'skycheat' || type === 'SKYCHEAT CFL Antiban') {
+        title.innerText = "SKYCHEAT CFL Antiban";
+        htmlContent = `
+            <div class="alert-info">Vui lòng chọn bản hack phù hợp</div>
+            <div class="hack-list">
+                <div class="hack-item">
+                    <div class="hack-info">
+                        <span class="hack-name">SKYCHEAT VIP</span>
+                        <span class="hack-version">Version 1.0 (Antiban)</span>
+                    </div>
+                    <button class="btn-download" onclick="window.open('LINK_CUA_HUY_TAI_DAY', '_blank')">INSTALL</button>
+                </div>
+            </div>`;
+    } 
+    // Nếu người dùng nhấn vào ESign (Gom 13 cái)
+    else if (type === 'esign') {
+        title.innerText = "ESign Bypass Revoke";
+        htmlContent = `<div class="alert-info">Chọn chứng chỉ để cài đặt</div>
+                       <div class="hack-list" style="max-height: 400px; overflow-y: auto; padding-right: 5px;">`;
+        
+        esignData.forEach(item => {
+            htmlContent += `
+                <div class="hack-item">
+                    <div class="hack-info">
+                        <span class="hack-name">${item.name}</span>
+                        <span class="hack-version">${item.info}</span>
+                    </div>
+                    <button class="btn-download" onclick="window.open('${item.link}', '_blank')">INSTALL</button>
+                </div>`;
+        });
+        htmlContent += `</div>`;
     }
+
+    modalBody.innerHTML = htmlContent;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
 }
 
 // Hàm đóng bảng
@@ -68,11 +120,11 @@ function closeHackModal() {
     const modal = document.getElementById('hack-modal');
     if (modal) {
         modal.style.display = 'none';
-        document.body.style.overflowY = 'auto'; // Mở lại cuộn trang
+        document.body.style.overflowY = 'auto';
     }
 }
 
-// Đóng bảng khi nhấn ra ngoài vùng bảng (vùng mờ)
+// Đóng bảng khi nhấn ra ngoài vùng bảng
 window.onclick = function(event) {
     const modal = document.getElementById('hack-modal');
     if (event.target === modal) {
@@ -80,35 +132,23 @@ window.onclick = function(event) {
     }
 };
 
-// --- KẾT THÚC PHẦN MỚI ---
-
-// 3. Hiệu ứng cánh hoa đào rơi
+// 4. Hiệu ứng cánh hoa đào rơi
 function createPetal() {
     const petal = document.createElement('div');
     petal.className = 'cherry-blossom'; 
-    
     const randomLeft = Math.random() * 100;
     petal.style.left = randomLeft + 'vw';
-    
     const size = (Math.random() * 8 + 8) + 'px';
     petal.style.width = size;
     petal.style.height = size;
-    
     const colors = ['#ffb7c5', '#ffc0cb', '#ffd1dc', '#ff91a4'];
     petal.style.background = colors[Math.floor(Math.random() * colors.length)];
-    
     const randomRotation = Math.random() * 360;
     petal.style.transform = `rotate(${randomRotation}deg)`;
     petal.style.opacity = Math.random() * 0.5 + 0.5;
-    
     const fallDuration = (Math.random() * 5 + 8) + 's';
     const shakeDuration = (Math.random() * 2 + 2) + 's';
-    
     petal.style.animationDuration = `${fallDuration}, ${shakeDuration}`;
-
     document.body.appendChild(petal);
-
-    setTimeout(() => {
-        petal.remove();
-    }, 12000);
+    setTimeout(() => { petal.remove(); }, 12000);
 }
