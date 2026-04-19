@@ -2,113 +2,237 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>L E M O N </title>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=110"> <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="sky-header">
-        <div class="header-inner">
-            <div class="logo-text">LEMON<span>X</span>SHOP.COM</div>
-            <div class="menu-toggle">
-                <span></span><span></span><span></span>
+    <div id="splash-screen" onclick="startWeb()">
+        <div class="splash-content">
+            <div class="splash-logo-wrapper">
+                <img src="img/IMG_3541.AVIF" alt="Logo" class="splash-logo">
             </div>
-        </div>
-    </header>
-
-    <main class="content-wrapper">
-        <div class="hero-banner">
-            <img src="img/banner.png" alt="Hero">
-        </div>
-
-        <div class="status-box">
-            <div class="status-content">
-                <span class="info-icon">i</span>
-                <p>Chào mừng bạn đến với LEMON CHEAT !</p>
-            </div>
-            <span class="close-status">&times;</span>
-        </div>
-
-        <div class="transaction-ticker">
-            <div class="ticker-track">
-                
-            </div>
-        </div>
-
-        <h2 class="main-title">Danh Sách Game</h2>
-
-        <div class="game-grid">
-            <div class="game-card">
-                <div class="img-container">
-                    <img src="img/lq.JPG" alt="Lien Quan">
-                </div>
-                <div class="card-footer">
-                    <h3>Hack Liên Quân Mobile</h3>
-                    <button class="btn-primary" onclick="openModal('modal-lq')">Xem Chi Tiết</button>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <div class="img-container">
-                    <img src="img/pu.JPG" alt="PUBG">
-                </div>
-                <div class="card-footer">
-                    <h3>Hack PUBG Mobile</h3>
-                    <button class="btn-primary" onclick="openModal('modal-pubg')">Xem Chi Tiết</button>
-                </div>
-            </div>
-        </div>
-
-        <footer class="footer-section">
-            <div class="footer-info">
-                <div class="footer-col">
-                    <h4 class="footer-title">Thông Tin Liên Hệ</h4>
-                    <p class="footer-link">Telegram: @xLemonVN</p>
-                </div>
-                <div class="footer-col">
-                    <h4 class="footer-title">Theo Dõi Chúng Tôi</h4>
-                    <div class="social-icons">
-                        <span>✈️</span><span>🎵</span><span>🎥</span><span>🎮</span>
-                    </div>
-                </div>
-            </div>
-            <div class="separator"></div>
-            <p class="cp-text">© 2025 xLemonVN. All rights reserved</p>
-        </footer>
-    </main>
-
-    <div id="modal-lq" class="modal-overlay">
-        <div class="modal-card">
-            <div class="modal-header">
-                <h3>Hack Liên Quân Mobile</h3>
-                <span class="modal-close" onclick="closeModal('modal-lq')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div class="blue-alert">
-                    Sau khi mua key hãy vào nhóm telegram để lấy file hack: <br>
-                    <a href="#">Link Nhóm Telegram</a>
-                </div>
-                <p class="label-text">Sản Phẩm:</p>
-                <div class="product-row">
-                    <div class="price-stack">
-                        <span class="price-old">20.000 VNĐ</span>
-                        <span class="price-new">15.000 VNĐ</span>
-                    </div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-                <div class="product-row">
-                    <div class="price-stack">
-                        <span class="price-old">80.000 VNĐ</span>
-                        <span class="price-new">60.000 VNĐ</span>
-                    </div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
-                </div>
-            </div>
+            <p>Cộng Đồng Hack Việt Nam</p>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 25px; animation: blink 1.5s infinite;">
+                — CHẠM VÀO MÀN HÌNH ĐỂ VÀO —
+            </p>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <div id="main-content" class="profile-container">
+        <div class="logo-wrapper">
+            <img src="img/IMG_3541.AVIF" alt="Logo" class="main-logo">
+        </div>
+
+        <h1 class="name">
+            L E M O N  
+            <span class="verified-icon">
+                <svg viewBox="0 0 24 24" fill="#007aff" width="22" height="22"><path d="M22.5 12.5c0-1.58-.88-2.95-2.18-3.65.25-1.03.07-2.15-.55-3.05-.62-.9-1.63-1.45-2.73-1.55-.42-1.35-1.53-2.38-2.93-2.65-1.4-.27-2.83.25-3.66 1.35C9.62 2.05 8.19 1.53 6.79 1.8c-1.4.27-2.51 1.3-2.93 2.65-1.1.1-2.11.65-2.73 1.55-.62.9-.8 2.02-.55 3.05-1.3.7-2.18 2.07-2.18 3.65 0 1.58.88 2.95 2.18 3.65-.25 1.03-.07 2.15.55 3.05.62.9 1.63 1.45 2.73 1.55.42 1.35 1.53 2.38 2.93 2.65 1.4.27 2.83-.25 3.66-1.35 1.05.9 2.48 1.42 3.88 1.15 1.4-.27 2.51-1.3 2.93-2.65 1.1-.1 2.11-.65 2.73-1.55.62-.9.8-2.02.55-3.05 1.3-.7 2.18-2.07 2.18-3.65zm-11.67 4.1l-4.14-4.14 1.41-1.41 2.73 2.73 5.37-5.37 1.41 1.41-6.78 6.78z"></path></svg>
+            </span>
+        </h1>
+        
+        <div class="marquee-box">
+            <span class="marquee-content">Hi I’m Lemon, Chúc các bạn chơi game vui vẻ !</span>
+        </div>
+
+        <div class="social-icons">
+            <a href="#" class="social-btn telegram"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="TG"></a>
+            <a href="#" class="social-btn facebook"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="FB"></a>
+            <a href="#" class="social-btn youtube"><img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YT"></a>
+        </div>
+
+        <h2 class="section-title">IPA</h2>
+<a href="https://drive.google.com/file/d/1mvMDZh4w3oPfddrcOW08IxLVvhaWF-x9/view" class="link-card-game">
+                <img src="img/cf.JPG" class="game-thumb" alt="GIF">
+                <div class="game-meta">
+                    <span class="game-title">SKYCHEAT CFL Antiban</span>
+                    <span class="game-date">Antiban siêu cao , chơi acc chính</span>
+                </div>
+                <div class="install-btn">Install</div>
+            </a>
+<a href="https://tumadam.io.vn/autoup/cfmravencrackios" class="link-card-game">
+                <img src="img/cf.JPG" class="game-thumb" alt="GIF">
+                <div class="game-meta">
+                    <span class="game-title">RAVEN CFL Crack No KEY</span>
+                    <span class="game-date">hãy diễn nếu muốn sống lâu và bền</span>
+                </div>
+                <div class="install-btn">Install</div>
+            </a>
+<a href="https://drive.google.com/file/d/1zsJ9WHw5iTkvOkAoDWakOKycoh5-wM6R/view?usp=drivesdk" class="link-card-game">
+                <img src="img/lq.JPG" class="game-thumb" alt="GIF">
+                <div class="game-meta">
+                    <span class="game-title">Liên Quân Mobile</span>
+                    <span class="game-date">Map Sáng,ModSkin</span>
+                </div>
+                <div class="install-btn">Install</div>
+            </a>
+<a href="https://drive.google.com/file/d/1ZQzn_XcxHdJlWdVBLBl1eoPDtQy4eolg/view" class="link-card-game">
+                <img src="img/pu.JPG" class="game-thumb" alt="GIF">
+                <div class="game-meta">
+                    <span class="game-title">PUBG Mobile</span>
+                    <span class="game-date">Aimbot, Esp </span>
+                </div>
+                <div class="install-btn">Install</div>
+            </a>
+<a href="https://dangdi.dev/cfl.php" class="link-card-game">
+                <img src="img/gif.JPG" class="game-thumb" alt="GIF">
+                <div class="game-meta">
+                    <span class="game-title">Nhập Giftcode Nhanh</span>
+                    <span class="game-date">Auto tự động nhập nhiều code một lúc</span>
+                </div>
+                <div class="install-btn">Click</div>
+            </a>
+
+            <a href="https://zalo.me/g/fwnup59ogullovi5tgll" class="link-card-game">
+                <img src="img/zl.PNG" class="game-thumb" alt="ZALO">
+                <div class="game-meta">
+                    <span class="game-title">Nhóm Zalo</span>
+                    <span class="game-date">Nhóm cập nhật hack</span>
+                </div>
+                <div class="install-btn">Tham Gia</div>
+            </a>
+<h2 class="section-title">Trollstor</h2>
+<a href="https://drive.google.com/file/d/1uu9Scjb8RN4B16d9VUdjxjmPoAuy4xCK/view?usp=sharing" class="link-card-game">
+                <img src="img/ff.JPG" class="game-thumb" alt="GIF">
+                <div class="game-meta">
+                    <span class="game-title">Free Fire External</span>
+                    <span class="game-date">Chỉ hỗ trợ ios dưới 17.0</span>
+                </div>
+                <div class="install-btn">Install</div>
+            </a>
+<a href="https://drive.google.com/file/d/1X7SBpaMu7ubRrZeeEX5QjK_gnTwJN9AR/view" class="link-card-game">
+                <img src="img/cf.JPG" class="game-thumb" alt="GIF">
+                <div class="game-meta">
+                    <span class="game-title">Crossfire External</span>
+                    <span class="game-date">Chỉ hỗ trợ ios dưới 17.0</span>
+                </div>
+                <div class="install-btn">Install</div>
+            </a>
+
+
+<h2 class="section-title">ESign Bypass Revoke 2.0</h2>
+        <div class="links">
+            <a href="https://api.khoindvn.io.vn/JnAsbd" class="link-card-game">
+                <img src="img/es.JPG" class="game-thumb" alt="ESIGN">
+                <div class="game-meta">
+                    <span class="game-title">Ksign✅</span>
+                    <span class="game-date">XL AXIATA, PT TBK</span>
+                </div>
+                <div class="install-btn">Install</div>
+            </a>
+
+            <a href="https://api.khoindvn.io.vn/XHJQcD" class="link-card-game">
+                <img src="img/es.JPG" class="game-thumb" alt="ESIGN">
+                <div class="game-meta">
+                    <span class="game-title">Esign</span>
+                    <span class="game-date">BOC International (China) Limited</span>
+                </div>
+                <div class="install-btn">Install</div>
+            </a>
+<a href="https://api.khoindvn.io.vn/l5zzBs" class="link-card-game">
+                <img src="img/es.JPG" class="game-thumb" alt="ESIGN">
+                <div class="game-meta">
+                    <span class="game-title">Esign</span>
+                    <span class="game-date">National Oilwell Varco, Inc</span>
+                </div>
+                <div class="install-btn">Install</div>
+            </a>
+
+<a href="https://api.khoindvn.io.vn/l0drnJ" class="link-card-game">
+                <img src="img/es.JPG" class="game-thumb" alt="ESIGN">
+                <div class="game-meta">
+                    <span class="game-title">Esign</span>
+                    <span class="game-date">VIETNAM AIRLINES JSC</span>
+                </div>
+                <div class="install-btn">Install</div>
+            </a>
+
+<a href="https://api.khoindvn.io.vn/HdZnCj" class="link-card-game">
+                <img src="img/es.JPG" class="game-thumb" alt="ESIGN">
+                <div class="game-meta">
+                    <span class="game-title">Esign</span>
+                    <span class="game-date">PowerChina International Group Limited</span>
+                </div>
+                <div class="install-btn">Install</div>
+            </a>
+
+<a href="https://api.khoindvn.io.vn/U7fGrl" class="link-card-game">
+                <img src="img/es.JPG" class="game-thumb" alt="ESIGN">
+                <div class="game-meta">
+                    <span class="game-title">Esign</span>
+                    <span class="game-date">Qingdao Rural Commercail Bank Co.,Ltd</span>
+                </div>
+                <div class="install-btn">Install</div>
+            </a>
+
+<a href="https://api.khoindvn.io.vn/PnrQnK" class="link-card-game">
+                <img src="img/es.JPG" class="game-thumb" alt="ESIGN">
+                <div class="game-meta">
+                    <span class="game-title">Esign</span>
+                    <span class="game-date">Commission on Elections</span>
+                </div>
+                <div class="install-btn">Install</div>
+            </a>
+
+<a href="https://api.khoindvn.io.vn/j7ugho" class="link-card-game">
+                <img src="img/es.JPG" class="game-thumb" alt="ESIGN">
+                <div class="game-meta">
+                    <span class="game-title">Esign</span>
+                    <span class="game-date">Luoyang Postal Administration </span>
+                </div>
+                <div class="install-btn">Install</div>
+            </a>
+
+<a href="https://api.khoindvn.io.vn/bYA0i6" class="link-card-game">
+                <img src="img/es.JPG" class="game-thumb" alt="ESIGN">
+                <div class="game-meta">
+                    <span class="game-title">Esign</span>
+                    <span class="game-date">China National Heavy Duty Truck Group Co.,Ltd</span>
+                </div>
+                <div class="install-btn">Install</div>
+            </a>
+
+<a href="https://api.khoindvn.io.vn/cTiFFB" class="link-card-game">
+                <img src="img/es.JPG" class="game-thumb" alt="ESIGN">
+                <div class="game-meta">
+                    <span class="game-title">Esign</span>
+                    <span class="game-date">China Telecommunications Corpration</span>
+                </div>
+                <div class="install-btn">Install</div>
+            </a>
+<a href="https://api.khoindvn.io.vn/TPaVIt" class="link-card-game">
+                <img src="img/es.JPG" class="game-thumb" alt="ESIGN">
+                <div class="game-meta">
+                    <span class="game-title">Esign</span>
+                    <span class="game-date">CHIBA INSTITUTE OF TECHNOLOGY</span>
+                </div>
+                <div class="install-btn">Install</div>
+            </a>
+
+<a href="https://api.khoindvn.io.vn/4h9whC" class="link-card-game">
+                <img src="img/es.JPG" class="game-thumb" alt="ESIGN">
+                <div class="game-meta">
+                    <span class="game-title">Esign</span>
+                    <span class="game-date">VIETNAM JOINT STOCK COMMERCIAL BANK FOR INDUSTRY AND TRADE</span>
+                </div>
+                <div class="install-btn">Install</div>
+            </a>
+
+<a href="https://api.khoindvn.io.vn/aKk6vi" class="link-card-game">
+                <img src="img/es.JPG" class="game-thumb" alt="ESIGN">
+                <div class="game-meta">
+                    <span class="game-title">Esign</span>
+                    <span class="game-date">GLOBAL TAKEOFF, INC</span>
+                </div>
+                <div class="install-btn">Install</div>
+            </a>
+        </div>
+
+        <footer class="footer">
+            <p>© 2026 Lemon Official</p>
+        </footer>
+    </div> <audio id="myAudio" loop><source src="Oggy.m4a" type="audio/mp4"></audio>
+    <script src="script.js?v=109"></script>
 </body>
 </html>
