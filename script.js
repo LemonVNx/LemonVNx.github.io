@@ -28,8 +28,8 @@ const gameData = {
     'cfl': {
         title: "Crossfire Legends",
         items: [
-            { name: "Raven Crack Free", info: "Bản miễn phí ổn định", link: "https://tumadam.io.vn/autoup/cfmravencrackios" },
-            { name: "SKYCHEAT Antiban", info: "Antiban cực mạnh - Acc chính", link: "https://drive.google.com/file/d/1mvMDZh4w3oPfddrcOW08IxLVvhaWF-x9/view?usp=drivesdk" },
+            { name: "Crossfire Raven ", info: "Bản crack no key", link: "https://tumadam.io.vn/autoup/cfmravencrackios" },
+            { name: "Crossfire SKY", info: "esp,aim , antiban", link: "https://drive.google.com/file/d/1mvMDZh4w3oPfddrcOW08IxLVvhaWF-x9/view?usp=drivesdk" },
             { name: "Crossfire External ", info: "Chỉ hỗ trợ ios dưới 17.0", link: "https://drive.google.com/file/d/1X7SBpaMu7ubRrZeeEX5QjK_gnTwJN9AR/view?usp=drivesdk" }
         ]
     },
@@ -37,7 +37,7 @@ const gameData = {
     'lq': {
         title: "Liên Quân Mobile",
         items: [
-            { name: "IPA", info: "skycheat map vip", link: "https://drive.google.com/file/d/1zsJ9WHw5iTkvOkAoDWakOKycoh5-wM6R/view?usp=drivesdk" },
+            { name: "Liên Quân SKYCHEAT", info: "máp sáng, mod skin, hiện rank", link: "https://drive.google.com/file/d/1zsJ9WHw5iTkvOkAoDWakOKycoh5-wM6R/view?usp=drivesdk" },
      
         ]
     },
@@ -45,7 +45,7 @@ const gameData = {
  'pu': {
         title: "PUBG MOBILE",
         items: [
-            { name: "IPA", info: "skycheat AIM", link: "https://drive.google.com/file/d/1ZQzn_XcxHdJlWdVBLBl1eoPDtQy4eolg/view?usp=drivesdk" },
+            { name: "PUBG VIP", info: "Auto aim, esp ,mod skin", link: "https://drive.google.com/file/d/1ZQzn_XcxHdJlWdVBLBl1eoPDtQy4eolg/view?usp=drivesdk" },
      
         ]
     },
@@ -53,7 +53,7 @@ const gameData = {
 'ff': {
         title: "Free Fire External",
         items: [
-            { name: "Trollstor", info: "Chỉ hỗ trợ ios dưới 17.0", link: "https://drive.google.com/file/d/1uu9Scjb8RN4B16d9VUdjxjmPoAuy4xCK/view?usp=drivesdk" },
+            { name: "Free Fire ", info: "Chỉ hỗ trợ ios dưới 17.0", link: "https://drive.google.com/file/d/1uu9Scjb8RN4B16d9VUdjxjmPoAuy4xCK/view?usp=drivesdk" },
      
         ]
     },
