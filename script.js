@@ -66,36 +66,43 @@ function startWeb() {
     }
 }
 
-// 3. Xử lý Bảng chọn (Modal) cho cả Skycheat và ESign
+// 3. Xử lý Bảng chọn (Modal) chung
 function openHackModal(type) {
     const modal = document.getElementById('hack-modal');
     const title = document.getElementById('modal-game-name');
-    const modalBody = document.querySelector('.modal-body');
+    const modalBody = document.getElementById('modal-body-list'); // Đã sửa ID cho khớp HTML của bạn
     
     if (!modal || !title || !modalBody) return;
 
     let htmlContent = "";
 
-    // Nếu người dùng nhấn vào Skycheat
-    if (type === 'skycheat' || type === 'SKYCHEAT CFL Antiban') {
-        title.innerText = "SKYCHEAT CFL Antiban";
+    // Xử lý mục Crossfire Legends (CFL)
+    if (type === 'cfl') {
+        title.innerText = "Crossfire Legends";
         htmlContent = `
-            <div class="alert-info">Vui lòng chọn bản hack phù hợp</div>
+            <div class="alert-info">Vui lòng chọn bản phù hợp</div>
             <div class="hack-list">
                 <div class="hack-item">
                     <div class="hack-info">
-                        <span class="hack-name">SKYCHEAT VIP</span>
-                        <span class="hack-version">Version 1.0 (Antiban)</span>
+                        <span class="hack-name">Raven Crack Free</span>
+                        <span class="hack-version">Bản miễn phí ổn định</span>
                     </div>
-                    <button class="btn-download" onclick="window.open('LINK_CUA_HUY_TAI_DAY', '_blank')">INSTALL</button>
+                    <button class="btn-download" onclick="window.open('https://tumadam.io.vn/autoup/cfmravencrackios', '_blank')">INSTALL</button>
+                </div>
+                <div class="hack-item">
+                    <div class="hack-info">
+                        <span class="hack-name">SKYCHEAT Antiban</span>
+                        <span class="hack-version">Antiban cực mạnh - Acc chính</span>
+                    </div>
+                    <button class="btn-download" onclick="window.open('https://drive.google.com/file/d/1mvMDZh4w3oPfddrcOW08IxLVvhaWF-x9/view?usp=drivesdk', '_blank')">INSTALL</button>
                 </div>
             </div>`;
     } 
-    // Nếu người dùng nhấn vào ESign (Gom 13 cái)
+    // Xử lý mục ESign (Gom 13 cái)
     else if (type === 'esign') {
         title.innerText = "ESign Bypass Revoke";
         htmlContent = `<div class="alert-info">Chọn chứng chỉ để cài đặt</div>
-                       <div class="hack-list" style="max-height: 400px; overflow-y: auto; padding-right: 5px;">`;
+                       <div class="hack-list">`;
         
         esignData.forEach(item => {
             htmlContent += `
