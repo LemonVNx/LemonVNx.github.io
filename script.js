@@ -30,7 +30,7 @@ const gameData = {
         items: [
             { name: "Crossfire Raven ", info: "Bản crack no key", link: "https://tumadam.io.vn/autoup/cfmravencrackios" },
             { name: "Crossfire SKY", info: "esp,aim , antiban", link: "https://drive.google.com/file/d/1mvMDZh4w3oPfddrcOW08IxLVvhaWF-x9/view?usp=drivesdk" },
-            { name: "Crossfire External ", info: "Chỉ hỗ trợ ios dưới 17.0", link: "https://drive.google.com/file/d/1X7SBpaMu7ubRrZeeEX5QjK_gnTwJN9AR/view?usp=drivesdk" }
+            { name: "Crossfire External ", info: "Chỉ hỗ trợ ios dưới 17.0", link: "https://drive.google.com/file/d/1X7SBpaMu7ubRrZeeEX5QjK_gnTwJN9AR/view?usp=drivesdk" },
         ]
     },
     // Biến định danh 'lq'
