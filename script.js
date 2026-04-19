@@ -29,17 +29,35 @@ const gameData = {
         title: "Crossfire Legends",
         items: [
             { name: "Raven Crack Free", info: "Bản miễn phí ổn định", link: "https://tumadam.io.vn/autoup/cfmravencrackios" },
-            { name: "SKYCHEAT Antiban", info: "Antiban cực mạnh - Acc chính", link: "https://drive.google.com/file/d/1mvMDZh4w3oPfddrcOW08IxLVvhaWF-x9/view?usp=drivesdk" }
+            { name: "SKYCHEAT Antiban", info: "Antiban cực mạnh - Acc chính", link: "https://drive.google.com/file/d/1mvMDZh4w3oPfddrcOW08IxLVvhaWF-x9/view?usp=drivesdk" },
+            { name: "Crossfire External ", info: "Chỉ hỗ trợ ios dưới 17.0", link: "https://drive.google.com/file/d/1X7SBpaMu7ubRrZeeEX5QjK_gnTwJN9AR/view?usp=drivesdk" }
         ]
     },
     // Biến định danh 'lq'
     'lq': {
         title: "Liên Quân Mobile",
         items: [
-            { name: "Mod Menu VIP", info: "Cam xa + Antiban", link: "LINK_CUA_HUY_TAI_DAY" },
-            { name: "Mod Skin All", info: "Full hiệu ứng skin", link: "LINK_CUA_HUY_TAI_DAY" }
+            { name: "IPA", info: "skycheat map vip", link: "https://drive.google.com/file/d/1zsJ9WHw5iTkvOkAoDWakOKycoh5-wM6R/view?usp=drivesdk" },
+     
         ]
     },
+//Biến định danh'pu'
+ 'pu': {
+        title: "PUBG MOBILE",
+        items: [
+            { name: "IPA", info: "skycheat AIM", link: "https://drive.google.com/file/d/1ZQzn_XcxHdJlWdVBLBl1eoPDtQy4eolg/view?usp=drivesdk" },
+     
+        ]
+    },
+//Biến định danh'ff'
+'ff': {
+        title: "Free Fire External",
+        items: [
+            { name: "Trollstor", info: "Chỉ hỗ trợ ios dưới 17.0", link: "https://drive.google.com/file/d/1uu9Scjb8RN4B16d9VUdjxjmPoAuy4xCK/view?usp=drivesdk" },
+     
+        ]
+    },
+
     // Biến định danh 'esign'
     'esign': {
         title: "ESign Bypass Revoke",
