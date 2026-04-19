@@ -1,6 +1,6 @@
 /* ==========================================================
    GIAO DIỆN PHONG CÁCH TUMADAM MOD (LIGHT MODE) - CHERRY BLOSSOM
-   HỖ TRỢ TRANG CHÍNH & TRANG CON
+   KẾT HỢP MODAL CHI TIẾT (SKY STYLE)
    ========================================================== */
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -46,14 +46,7 @@ body {
     padding-bottom: 20px;
 }
 
-/* Hiển thị nội dung */
 .show-content { opacity: 1 !important; }
-
-/* Tự động hiện cho trang con không có splash */
-body:not(:has(#splash-screen)) .profile-container {
-    opacity: 1 !important;
-    display: block !important;
-}
 
 .logo-wrapper { display: flex; justify-content: center; margin-bottom: 15px; }
 .main-logo {
@@ -99,20 +92,8 @@ body:not(:has(#splash-screen)) .profile-container {
 }
 
 .social-btn img { width: 24px; height: 24px; }
-.social-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
-
-/* --- TIÊU ĐỀ MỤC --- */
-.section-title { 
-    font-size: 13px; 
-    color: #aaa; 
-    margin: 30px 0 15px; 
-    letter-spacing: 1.5px; 
-    text-transform: uppercase; 
-}
 
 /* --- CÁC THẺ LINK GAME & APP --- */
-.links { display: flex; flex-direction: column; gap: 12px; }
-
 .link-card-game { 
     background: #ffffff;
     display: flex; 
@@ -123,36 +104,17 @@ body:not(:has(#splash-screen)) .profile-container {
     text-decoration: none; 
     color: #333; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    margin-bottom: 12px;
     transition: 0.3s;
 }
 
-.game-thumb {
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
-    object-fit: cover;
-    margin-right: 15px;
-}
+.game-thumb { width: 50px; height: 50px; border-radius: 12px; object-fit: cover; margin-right: 15px; }
 
-.game-meta {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    text-align: left;
-    margin-right: 10px;
-    overflow: hidden;
-}
+.game-meta { flex-grow: 1; text-align: left; }
 
-.game-title {
-    font-weight: 700;
-    font-size: 15px;
-    color: #1a1a1a;
-}
+.game-title { font-weight: 700; font-size: 15px; color: #1a1a1a; }
 
-.game-date {
-    font-size: 11px;
-    color: #999;
-}
+.game-date { font-size: 11px; color: #999; }
 
 .install-btn {
     background: #e1efff;
@@ -164,42 +126,105 @@ body:not(:has(#splash-screen)) .profile-container {
     text-transform: uppercase;
     min-width: 80px;
     text-align: center;
+    transition: 0.3s;
 }
 
-.link-card-game:hover .install-btn {
-    background: #007aff;
-    color: #fff;
+/* ---------------------------------------------------------
+   CSS CHO MODAL CHI TIẾT (SKY STYLE) - PHẦN MỚI THÊM
+   --------------------------------------------------------- */
+
+.modal-custom {
+    display: none;
+    position: fixed;
+    z-index: 10000; /* Nằm trên cả splash */
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    align-items: center; justify-content: center;
 }
 
-/* --- SỬA LỖI HOA ĐÀO (FIXED ĐỂ KHÔNG BỊ DỒN) --- */
+.modal-content-sky {
+    background-color: #1f2235; /* Màu tím than chuẩn */
+    border-radius: 24px;
+    width: 90%;
+    max-width: 400px;
+    color: white;
+    border: 1px solid #32374a;
+    overflow: hidden;
+    animation: modalZoom 0.3s ease-out;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 20px;
+    border-bottom: 1px solid #32374a;
+    align-items: center;
+}
+
+.modal-header h3 { font-size: 18px; font-weight: 600; }
+
+.close-x { font-size: 28px; cursor: pointer; color: #82869a; line-height: 1; }
+
+.modal-body { padding: 20px; text-align: left; }
+
+.alert-box-blue {
+    background: #2a2e45;
+    border: 1px solid #3f4461;
+    padding: 14px;
+    border-radius: 15px;
+    font-size: 13px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.price-item-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2a2e45;
+    padding: 15px;
+    border-radius: 16px;
+    border: 1px solid #3f4461;
+    margin-bottom: 12px;
+}
+
+.v-name { display: block; font-weight: bold; font-size: 15px; color: #fff; }
+.v-sub { font-size: 11px; color: #82869a; }
+
+.btn-dl {
+    background: #00c853; /* Xanh lá rực */
+    color: white !important;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 12px;
+    box-shadow: 0 4px 15px rgba(0, 200, 83, 0.3);
+    transition: 0.3s;
+}
+
+.btn-dl:hover { background: #00e676; transform: scale(1.05); }
+
+/* --- HOA ĐÀO & FOOTER --- */
 .cherry-blossom {
-    position: fixed; /* Ép nó bay toàn màn hình */
+    position: fixed;
     top: -20px;
     z-index: 9998;
     pointer-events: none;
     border-radius: 150% 0 150% 150%; 
     background: #ffb7c5;
-    animation-name: blossom-fall, blossom-shake;
-    animation-iteration-count: infinite, infinite;
-    animation-timing-function: linear, ease-in-out;
+    animation: blossom-fall linear infinite, blossom-shake ease-in-out infinite;
 }
 
-/* --- SỬA LỖI FOOTER (CĂN GIỮA) --- */
-.footer {
-    width: 100%;
-    margin-top: 40px;
-    padding-bottom: 40px;
-    text-align: center; /* Căn giữa chữ bản quyền */
-    clear: both;
-}
-
-.footer p {
-    font-size: 0.8rem;
-    color: #bbb;
-    display: inline-block;
-}
+.footer { width: 100%; margin-top: 40px; padding-bottom: 40px; text-align: center; }
+.footer p { font-size: 0.8rem; color: #bbb; }
 
 /* --- ANIMATIONS --- */
+@keyframes modalZoom {
+    from { opacity: 0; transform: scale(0.85); }
+    to { opacity: 1; transform: scale(1); }
+}
+
 @keyframes blossom-fall {
     0% { transform: translateY(0) rotate(45deg); opacity: 1; }
     100% { transform: translateY(105vh) rotate(400deg); opacity: 0; }
@@ -211,10 +236,5 @@ body:not(:has(#splash-screen)) .profile-container {
 }
 
 @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-
-@keyframes rainbow-glow-light {
-    0% { border-color: #ffb7c5; box-shadow: 0 0 15px rgba(255,183,197,0.4); }
-    100% { border-color: #ffb7c5; box-shadow: 0 0 15px rgba(255,183,197,0.4); }
-}
 
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
