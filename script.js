@@ -24,7 +24,6 @@ const esignData = [
 // 2. KHO DỮ LIỆU GAME (THÊM/SỬA LINK NHANH TẠI ĐÂY)
 // ==========================================
 const gameData = {
-    // Biến định danh 'cfl'
     'cfl': {
         title: "Crossfire Legends",
         items: [
@@ -33,43 +32,46 @@ const gameData = {
             { name: "Crossfire External ", info: "Chỉ hỗ trợ ios dưới 17.0", link: "https://drive.google.com/file/d/1X7SBpaMu7ubRrZeeEX5QjK_gnTwJN9AR/view?usp=drivesdk" },
         ]
     },
-    // Biến định danh 'lq'
     'lq': {
         title: "Liên Quân Mobile",
         items: [
             { name: "Liên Quân SKYCHEAT", info: "máp sáng, mod skin, hiện rank", link: "https://drive.google.com/file/d/1zsJ9WHw5iTkvOkAoDWakOKycoh5-wM6R/view?usp=drivesdk" },
-     
         ]
     },
-//Biến định danh'pu'
- 'pu': {
+    'pu': {
         title: "PUBG MOBILE",
         items: [
             { name: "PUBG VIP", info: "Auto aim, esp ,mod skin", link: "https://drive.google.com/file/d/1ZQzn_XcxHdJlWdVBLBl1eoPDtQy4eolg/view?usp=drivesdk" },
-     
         ]
     },
-//Biến định danh'ff'
-'ff': {
+    'ff': {
         title: "Free Fire External",
         items: [
             { name: "Free Fire ", info: "Chỉ hỗ trợ ios dưới 17.0", link: "https://drive.google.com/file/d/1uu9Scjb8RN4B16d9VUdjxjmPoAuy4xCK/view?usp=drivesdk" },
-     
         ]
     },
-
-    // Biến định danh 'esign'
     'esign': {
         title: "ESign Bypass Revoke",
-        items: esignData // Tự động lấy 13 cái ở trên
+        items: esignData 
     }
 };
 
 // ==========================================
-// 3. HỆ THỐNG XỬ LÝ (KHÔNG CẦN THAY ĐỔI)
+// 3. HỆ THỐNG XỬ LÝ NHẠC NGẪU NHIÊN
+// ==========================================
+const myPlayList = [
+    "Oggy.m4a",
+    "bai1.m4a",
+    "bai2.m4a",
+    "bai3.m4a",
+    "bai4.m4a",
+    "bai6.m4a"
+];
+
+// ==========================================
+// 4. HỆ THỐNG XỬ LÝ (KHÔNG CẦN THAY ĐỔI)
 // ==========================================
 
-// Hàm khởi tạo khi mở web
 document.addEventListener('DOMContentLoaded', () => {
     const splash = document.getElementById('splash-screen');
     const mainContent = document.getElementById('main-content');
@@ -85,17 +87,22 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = 'hidden';
     }
 
-    // Hiệu ứng hoa đào rơi
     setInterval(createPetal, 500); 
 });
 
-// Hàm xử lý khi nhấn vào Splash Screen
+// Hàm xử lý khi nhấn vào Splash Screen (Đã cập nhật đổi bài ngẫu nhiên)
 function startWeb() {
     const audio = document.getElementById('myAudio');
     const splash = document.getElementById('splash-screen');
     const mainContent = document.getElementById('main-content');
 
     if (audio) {
+        // --- LOGIC ĐỔI BÀI NGẪU NHIÊN ---
+        const randomSong = myPlayList[Math.floor(Math.random() * myPlayList.length)];
+        audio.src = randomSong;
+        audio.load();
+        // -------------------------------
+        
         audio.play().catch(() => console.log("Cần chạm màn hình để phát nhạc"));
     }
 
@@ -117,13 +124,11 @@ function startWeb() {
     }
 }
 
-// Hàm mở Bảng chọn (Modal) tự động
+// Hàm mở Bảng chọn (Modal)
 function openHackModal(key) {
     const modal = document.getElementById('hack-modal');
     const title = document.getElementById('modal-game-name');
     const modalBody = document.getElementById('modal-body-list');
-    
-    // Kiểm tra xem key (cfl, lq, esign...) có trong kho dữ liệu không
     const data = gameData[key];
 
     if (!modal || !title || !modalBody || !data) return;
@@ -131,7 +136,6 @@ function openHackModal(key) {
     title.innerText = data.title;
     let htmlContent = `<div class="alert-info">Vui lòng chọn bản phù hợp</div><div class="hack-list">`;
     
-    // Tự động chạy vòng lặp tạo danh sách nút bấm
     data.items.forEach(item => {
         htmlContent += `
             <div class="hack-item">
@@ -149,7 +153,6 @@ function openHackModal(key) {
     document.body.style.overflow = 'hidden';
 }
 
-// Hàm đóng bảng
 function closeHackModal() {
     const modal = document.getElementById('hack-modal');
     if (modal) {
@@ -158,7 +161,6 @@ function closeHackModal() {
     }
 }
 
-// Đóng bảng khi nhấn ra ngoài vùng bảng (vùng mờ)
 window.onclick = function(event) {
     const modal = document.getElementById('hack-modal');
     if (event.target === modal) {
@@ -166,7 +168,6 @@ window.onclick = function(event) {
     }
 };
 
-// Hiệu ứng cánh hoa đào rơi
 function createPetal() {
     const petal = document.createElement('div');
     petal.className = 'cherry-blossom'; 
